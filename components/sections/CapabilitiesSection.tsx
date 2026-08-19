@@ -31,7 +31,7 @@ export function CapabilitiesSection() {
               {capabilities.map((capability, index) => (
                 <div
                   key={capability.title}
-                  className={`group relative min-h-[560px] overflow-hidden border border-bone/10 bg-white/[0.07] p-7 text-bone transition duration-300 hover:-translate-y-2 hover:border-plasma/45 hover:bg-white/[0.11] hover:shadow-[0_24px_70px_rgba(168,85,247,0.2)] ${
+                  className={`group relative min-h-[460px] overflow-hidden border border-bone/10 bg-white/[0.07] p-7 text-bone transition duration-300 hover:-translate-y-2 hover:border-plasma/45 hover:bg-white/[0.11] hover:shadow-[0_24px_70px_rgba(168,85,247,0.2)] ${
                     index === capabilities.length - 1 ? "bg-plasma/10" : ""
                   }`}
                 >
