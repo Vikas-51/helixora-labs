@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --shell-x: clamp(1rem, 4vw, 5rem);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  color: #061311;
+  background:
+    linear-gradient(rgba(6, 19, 17, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 19, 17, 0.045) 1px, transparent 1px),
+    linear-gradient(180deg, #fbfbf8 0%, #f6f8f4 52%, #fbfaf5 100%);
+  background-size: 34px 34px, 34px 34px, auto;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+::selection {
+  background: #a855f7;
+  color: #061311;
+}
+
+.section-shell {
+  width: min(1180px, calc(100% - (var(--shell-x) * 2)));
+  margin-inline: auto;
+}
+
+.focus-ring {
+  @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-chlorophyll;
+}
+
+.glass-panel {
+  border: 1px solid rgba(11, 61, 53, 0.12);
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: 0 24px 80px rgba(6, 19, 17, 0.09);
+-webkit-backdrop-filter: blur(20px);
+backdrop-filter: blur(20px);
+}
+
+.edge-panel {
+  box-shadow: 0 24px 80px rgba(6, 19, 17, 0.055);
+}
+
+.edge-corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: #a855f7;
+}
+
+.node-dot {
+  position: relative;
+  display: inline-flex;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: #cfd5dc;
+}
+
+.node-dot-active {
+  background: #a855f7;
+  box-shadow: 0 0 0 8px rgba(168, 85, 247, 0.14);
+}
+
+.section-breathe {
+  background-size: 140% 140%;
+  animation: sectionBreathe 9s ease-in-out infinite alternate;
+}
+
+@keyframes sectionBreathe {
+  from {
+    background-position: 0% 0%;
+  }
+
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes scanLine {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  18%,
+  82% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(190px);
+    opacity: 0.75;
+  }
+}
+
+@keyframes logoOrbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
